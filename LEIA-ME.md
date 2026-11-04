@@ -34,11 +34,11 @@ venv\Scripts\python -m streamlit run app.py
 ### 3. Publicar (Streamlit Community Cloud, gratuito)
 1. Envie o projeto a um repositório no GitHub. O `.gitignore` já deixa de fora as senhas e a versão antiga.
 2. Em [share.streamlit.io](https://share.streamlit.io), crie o app apontando para `app.py`. Em **Advanced settings**, escolha Python 3.11 ou mais recente.
-3. Em **Settings > Secrets**, cole as quatro primeiras linhas de `.streamlit/secrets.toml`.
-4. Envie o link e a senha de acesso à equipe. No celular, use **Adicionar à tela inicial** para abrir como um aplicativo.
+3. Em **Settings > Secrets**, cole as três primeiras linhas de `.streamlit/secrets.toml`.
+4. Envie o link à equipe. No celular, use **Adicionar à tela inicial** para abrir como um aplicativo.
 
 ## Uso no dia a dia
-- **Senha de acesso:** a equipe usa para entrar. Para trocar, altere `SENHA_ACESSO` nos secrets.
+- **Acesso:** quem tem o link entra sem senha e vê a agenda, então compartilhe o link só com a equipe.
 - **Senha de administrador:** em **Mais**, libera o cancelamento sem código e a exportação em CSV.
 - **Código de cancelamento:** aparece uma única vez ao reservar. Quem perder o código pede o cancelamento ao administrador. Reservas antigas não têm código: só o administrador as cancela.
 - **Cancelamentos:** a linha continua na planilha com `Status = Cancelada`, mantendo o histórico.

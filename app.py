@@ -77,7 +77,7 @@ input, textarea, [data-baseweb="select"] * {font-size:16px !important}
 
 
 def configuracao():
-    faltando = [k for k in ("APPS_SCRIPT_URL", "API_TOKEN", "SENHA_ACESSO", "SENHA_ADMIN") if not st.secrets.get(k)]
+    faltando = [k for k in ("APPS_SCRIPT_URL", "API_TOKEN", "SENHA_ADMIN") if not st.secrets.get(k)]
     if faltando:
         st.error("O sistema ainda não foi configurado. Faltam em secrets.toml: " + ", ".join(faltando))
         st.stop()
@@ -97,25 +97,7 @@ def marca():
             st.markdown("**SEMED**")
 
 
-def tela_login():
-    marca()
-    st.write("")
-    st.subheader("Agendamento da Sala de Reuniões", anchor=False)
-    with st.form("login"):
-        senha = st.text_input("Senha de acesso", type="password")
-        if st.form_submit_button("Entrar", type="primary", width="stretch"):
-            if senha_confere(senha, "SENHA_ACESSO"):
-                st.session_state.logado = True
-                st.rerun()
-            tempo.sleep(1.5)  # encarece tentativas repetidas de adivinhar a senha
-            st.error("Senha incorreta.")
-    st.caption("Peça a senha à Coordenação do Núcleo de Tecnologias Educacionais.")
-    st.stop()
-
-
 api = configuracao()
-if not st.session_state.get("logado"):
-    tela_login()
 
 
 @st.cache_data(ttl=45, show_spinner="Consultando agenda...")
@@ -343,16 +325,13 @@ def pagina_mais(dados, reservas):
                 if senha_confere(senha, "SENHA_ADMIN"):
                     st.session_state.admin = True
                     st.rerun()
-                tempo.sleep(1.5)
+                tempo.sleep(1.5)  # encarece tentativas repetidas de adivinhar a senha
                 st.error("Senha incorreta.")
 
     st.subheader("Usar como aplicativo", anchor=False)
     st.markdown("**Android (Chrome):** menu ⋮ → *Adicionar à tela inicial*.  \n"
                 "**iPhone (Safari):** botão Compartilhar → *Adicionar à Tela de Início*.")
     st.button("Atualizar dados agora", icon=":material/refresh:", on_click=atualizar, width="stretch")
-    if st.button("Sair", width="stretch"):
-        st.session_state.clear()
-        st.rerun()
 
 
 marca()
