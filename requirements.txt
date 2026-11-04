@@ -1,0 +1,5 @@
+streamlit==1.65.0
+pandas==3.0.6
+requests==2.34.2
+tzdata==2026.5
+altair==6.3.0
