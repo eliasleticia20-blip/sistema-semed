@@ -34,8 +34,8 @@ input, textarea, [data-baseweb="select"] * {font-size:16px !important}
 
 /* Faixa da marca de ponta a ponta */
 [data-testid="stLayoutWrapper"]:has(> .st-key-marca) {margin:0 -14px; width:calc(100% + 28px); max-width:none}
-.st-key-marca {background:#21A351; padding:10px 14px; max-width:none !important}
-.st-key-marca img {max-height:58px; width:auto !important; border-radius:0}
+.st-key-marca {background:#21A351; padding:5px 14px; max-width:none !important}
+.st-key-marca img {max-height:38px; width:auto !important; border-radius:0}
 .st-key-marca [data-testid="stImageToolbar"], .st-key-marca [data-testid="stElementToolbar"] {display:none}
 
 /* Navegação fixa no topo: não briga com o teclado nem com as barras do navegador */
